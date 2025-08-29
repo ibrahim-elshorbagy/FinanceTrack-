@@ -12,7 +12,7 @@ new #[Layout('layouts.guest')] class extends Component
     /**
      * Handle an incoming authentication request.
      */
-    public function login(): voidF
+    public function login(): void
     {
         $this->validate();
 
