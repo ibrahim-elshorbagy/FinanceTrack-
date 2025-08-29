@@ -1,17 +1,3 @@
-<?php
-
-use App\Livewire\Actions\Logout;
-use Livewire\Volt\Component;
-
-new class extends Component
-{
-    public function logout(Logout $logout): void
-    {
-        $logout();
-        $this->redirect('/', navigate: true);
-    }
-}; ?>
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -20,7 +6,7 @@ new class extends Component
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>{{ config('app.name', 'Laravel') }}</title>
+  <title>{{ config('app.name', 'Flocashra') }} {{ isset($title) ? ' - ' . $title : '' }}</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.bunny.net">
@@ -138,11 +124,8 @@ new class extends Component
                                 <i class="fa-solid fa-user"></i>
                                 Profile
                             </a>
-                            <a href="#" wire:click="logout"
-                               class="flex items-center gap-2 rounded-lg px-4 py-2 text-sm text-neutral-800 hover:bg-purple-500/5 hover:text-black dark:text-neutral-300 dark:hover:bg-purple-400/5 dark:hover:text-neutral-100">
-                                <i class="fa-solid fa-right-from-bracket"></i>
-                                Log Out
-                            </a>
+                            <livewire:components.logout-button />
+
                         </div>
                     </div>
                 </div>

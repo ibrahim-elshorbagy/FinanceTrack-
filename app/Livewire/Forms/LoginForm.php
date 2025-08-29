@@ -26,7 +26,7 @@ class LoginForm extends Form
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function authenticate(): void
+    public function authenticate()
     {
         $this->ensureIsNotRateLimited();
 
@@ -44,7 +44,7 @@ class LoginForm extends Form
     /**
      * Ensure the authentication request is not rate limited.
      */
-    protected function ensureIsNotRateLimited(): void
+    protected function ensureIsNotRateLimited()
     {
         if (! RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
             return;
@@ -65,7 +65,7 @@ class LoginForm extends Form
     /**
      * Get the authentication rate limiting throttle key.
      */
-    protected function throttleKey(): string
+    protected function throttleKey()
     {
         return Str::transliterate(Str::lower($this->username).'|'.request()->ip());
     }
