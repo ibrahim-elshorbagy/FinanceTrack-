@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>{{ config('app.name', 'Flocashra') }} {{ isset($title) ? ' - ' . $title : '' }}</title>
+  <title>{{ config('app.name', 'MyFlos') }} {{ isset($title) ? ' - ' . $title : '' }}</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.bunny.net">
@@ -29,7 +29,7 @@
       aria-hidden="true" x-on:click="sidebarIsOpen = false" x-transition.opacity></div>
 
     <div class="relative flex w-full flex-col md:flex-row">
-      
+
       <!-- Sidebar Navigation -->
       <x-sidebar />
 
@@ -44,16 +44,7 @@
                     <span class="sr-only">Toggle Sidebar</span>
                 </button>
 
-                <!-- Breadcrumbs -->
-                <nav class="hidden md:block text-sm font-medium text-neutral-800 dark:text-neutral-300">
-                    <ol class="flex items-center gap-1">
-                        <li class="flex items-center gap-1">
-                            <a href="#" class="hover:text-black dark:hover:text-neutral-100">Dashboard</a>
-                            <i class="fa-solid fa-chevron-right size-4"></i>
-                        </li>
-                        <li class="font-bold text-black dark:text-neutral-100">Current Page</li>
-                    </ol>
-                </nav>
+                <div></div>
 
                 <!-- Profile Menu -->
                 <div x-data="{ profileOpen: false }" class="relative" @keydown.escape.window="profileOpen = false">
